@@ -13,14 +13,27 @@ Namespace DetailDescriptorExample
                 If _TaskData Is Nothing Then
                     _TaskData = New List(Of ParentTaskData)()
                     For i As Integer = 0 To 9
-                        Dim parentData As New ParentTaskData() With {.TaskGroup = "TaskGroup " & i, .Number = i, .List = New List(Of Object)()}
+                        Dim parentData As New ParentTaskData() With { _
+                            .TaskGroup = "TaskGroup " & i, _
+                            .Number = i, _
+                            .List = New List(Of Object)() _
+                        }
                         If i Mod 2 = 0 Then
                             For j As Integer = 0 To 4
-                                parentData.List.Add(New Task() With {.Name = "Task " & j, .Number = j, .Ready = j Mod 2 <> 0})
+                                parentData.List.Add(New Task() With { _
+                                    .Name = "Task " & j, _
+                                    .Number = j, _
+                                    .Ready = j Mod 2 <> 0 _
+                                })
                             Next j
                         Else
                             For j As Integer = 0 To 4
-                                parentData.List.Add(New MultipleTask() With {.SubNameOne = "Sub Task " & j, .SubNameTwo = "Sub Task " & (j + 1), .SubNumber = j, .MultipleReady = j Mod 2 <> 0})
+                                parentData.List.Add(New MultipleTask() With { _
+                                    .SubNameOne = "Sub Task " & j, _
+                                    .SubNameTwo = "Sub Task " & (j + 1), _
+                                    .SubNumber = j, _
+                                    .MultipleReady = j Mod 2 <> 0 _
+                                })
                             Next j
                         End If
 
